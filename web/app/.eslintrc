@@ -1,0 +1,118 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:inferno/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/standard"
+  ],
+
+  "plugins": ["prettier", "filenames"],
+
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "env": {
+    "browser": true
+  },
+
+  "rules": {
+    "filenames/match-regex":       ["error", "^(([a-z]+[A-Z]*)+|([A-Z]+[a-z]*)+)(.spec)?$"],
+    "filenames/match-exported":    "error",
+
+    "prettier/prettier": ["warn", { "singleQuote": true }],
+
+    "camelcase": "warn",
+    "valid-jsdoc": ["warn", { "requireReturn": false }],
+    "consistent-this": ["warn", "self"],
+    "linebreak-style": ["warn", "unix"],
+    "max-nested-callbacks": ["warn", 3],
+    "max-depth": ["warn", 4],
+    "max-params": ["warn", 5],
+    "max-statements": ["warn", 20],
+    "no-array-constructor": "warn",
+    "no-lonely-if": "warn",
+    "lines-between-class-members": "warn",
+    "no-nested-ternary": "warn",
+    "no-new-object": "warn",
+    "no-unneeded-ternary": "warn",
+    "one-var": ["warn", "never"],
+    "operator-assignment": ["warn", "always"],
+    "padding-line-between-statements": ["warn", { "blankLine": "always", "prev": ["class", "function", "export"], "next": "*" },
+                                                { "blankLine": "always", "prev": "*", "next": ["class", "function", "export"] }],
+    "spaced-comment": "warn",
+    "no-var": "warn",
+    "object-shorthand": "warn",
+    "prefer-arrow-callback": "warn",
+    "prefer-const": "warn",
+    "prefer-spread": "warn",
+    "prefer-reflect": "warn",
+    "require-yield": "warn",
+    "prefer-template": "warn",
+
+    "complexity": ["warn", 20],
+    "dot-notation": "warn",
+    "eqeqeq": ["warn", "always", { "null": "never" }],
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-caller": "warn",
+    "no-eval": "warn",
+    "no-extra-bind": "warn",
+    "no-implicit-coercion": "warn",
+    "no-implied-eval": "warn",
+    "no-iterator": "warn",
+    "no-loop-func": "warn",
+    "no-new": "warn",
+    "no-param-reassign": "warn",
+    "no-proto": "warn",
+    "no-redeclare": "warn",
+    "no-empty": "warn",
+    "no-useless-call": "warn",
+    "no-useless-concat": "warn",
+    "no-void": "warn",
+    "vars-on-top": "warn",
+    "yoda": "warn",
+    "no-catch-shadow": "warn",
+    "no-shadow": "warn",
+    "no-undef-init": "warn",
+    "no-undef": "error",
+    "no-undefined": "warn",
+    "no-use-before-define": ["warn", "nofunc"],
+    "constructor-super": "warn",
+    "no-class-assign": "warn",
+    "no-const-assign": "warn",
+    "no-dupe-class-members": "warn",
+    "no-unused-vars": ["warn", {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+      "ignoreRestSiblings": true
+    }],
+
+    "inferno/prefer-es6-class": "warn",
+    "inferno/prefer-stateless-function": "warn",
+    "inferno/no-string-refs": "warn",
+    "inferno/jsx-boolean-value": ["warn", "never"],
+    "inferno/no-children-prop": "warn",
+    "inferno/no-danger-with-children": "warn",
+    "inferno/jsx-no-duplicate-props": "warn",
+    "inferno/jsx-uses-vars": "warn",
+    "inferno/no-danger": "warn",
+    "inferno/no-did-mount-set-state": "warn",
+    "inferno/no-did-update-set-state": "warn",
+    "inferno/no-multi-comp": ["warn", { "ignoreStateless": true }],
+    "inferno/no-unknown-property": "warn",
+    "inferno/self-closing-comp": "warn",
+    "inferno/sort-comp": "warn",
+    "inferno/jsx-no-undef": "warn",
+    "inferno/no-direct-mutation-state": "warn",
+    "inferno/no-is-mounted": "warn",
+    "inferno/require-render-return": "warn",
+    "inferno/jsx-pascal-case": "warn"
+  }
+}
