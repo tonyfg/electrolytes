@@ -1,13 +1,6 @@
 // This file is not compiled into CSS modules.
-// Any SCSS partials are also not compiled. Put those in the styles folder
+// You can use it for resets and global styles.
+// Any SCSS partials are also not compiled. Put those in the styles folder and import them here
 
-@import '../node_modules/lit/src/lit';
-@import '../node_modules/lit/src/util';
-
-html {
-  font-size: 150%;
-}
-
-.touch {
-  font-size: 1.5em;
-}
+// Example of importing a css file from node modules
+// @import '../node_modules/lit/src/lit';

@@ -8,22 +8,19 @@ module.exports = {
     // JS plugins //
     // /////////////
 
-    // Transpile:
-    // - ES201* features that aren't supported by the latest WebKit
-    // - Inferno's JSX
+    // Transpile ES201* features that aren't supported by the latest WebKit
     babel: {
       presets: [
         [
           'env',
           {
             targets: {
-              // This seems to map closest to QtWebKit...
+              // This seems to map closest to WebKit...
               browsers: ['last 1 safari versions']
             }
           }
         ]
-      ],
-      plugins: [['babel-plugin-inferno', { imports: true }]]
+      ]
     },
     // Minify JS
     uglify: {

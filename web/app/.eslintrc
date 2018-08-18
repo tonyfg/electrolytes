@@ -1,7 +1,6 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:inferno/recommended",
     "plugin:prettier/recommended",
     "prettier/react",
     "prettier/standard"
@@ -92,27 +91,6 @@
       "argsIgnorePattern": "^_",
       "varsIgnorePattern": "^_",
       "ignoreRestSiblings": true
-    }],
-
-    "inferno/prefer-es6-class": "warn",
-    "inferno/prefer-stateless-function": "warn",
-    "inferno/no-string-refs": "warn",
-    "inferno/jsx-boolean-value": ["warn", "never"],
-    "inferno/no-children-prop": "warn",
-    "inferno/no-danger-with-children": "warn",
-    "inferno/jsx-no-duplicate-props": "warn",
-    "inferno/jsx-uses-vars": "warn",
-    "inferno/no-danger": "warn",
-    "inferno/no-did-mount-set-state": "warn",
-    "inferno/no-did-update-set-state": "warn",
-    "inferno/no-multi-comp": ["warn", { "ignoreStateless": true }],
-    "inferno/no-unknown-property": "warn",
-    "inferno/self-closing-comp": "warn",
-    "inferno/sort-comp": "warn",
-    "inferno/jsx-no-undef": "warn",
-    "inferno/no-direct-mutation-state": "warn",
-    "inferno/no-is-mounted": "warn",
-    "inferno/require-render-return": "warn",
-    "inferno/jsx-pascal-case": "warn"
+    }]
   }
 }
