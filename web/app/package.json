@@ -22,7 +22,6 @@
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-prettier": "^2.6.2",
-    "gzip-brunch": "^1.3.0",
     "hmr-brunch": "^0.1.1",
     "imagemin-brunch": "^1.1.0",
     "obfuscator-brunch": "^1.0.0",

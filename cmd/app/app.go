@@ -1,65 +1,48 @@
+// +build prod
+
 package main
 
 import (
 	"fmt"
-	"log"
-	"net"
-	"os"
-	"time"
+	"html/template"
+	"net/url"
 
-	"github.com/caarlos0/env"
-	"github.com/joho/godotenv"
+	"github.com/gobuffalo/packr"
 	"github.com/zserge/webview"
 )
 
-type config struct {
-	Env string `env:"MY_APP_ENV" envDefault:"dev"`
-}
-
 func main() {
-	_, err := os.Stat(".env")
-	if err == nil {
-		err := godotenv.Load()
-		if err != nil {
-			log.Fatalf("Error loading .env file - %v", err)
-		}
-	} else {
-		log.Print(".env file not found. Using default configuration...")
-	}
+	box := packr.NewBox("../../web/app/public")
+	html := box.String("index.html")
+	js := box.String("app.js")
+	css := box.String("app.css")
 
-	cfg := config{}
-	err = env.Parse(&cfg)
-	if err != nil {
-		log.Fatalf("Error setting configuration: %+v", err)
-	}
-	fmt.Printf("Configuration: %+v\n", cfg)
+	// Open the packed assets inside webview
+	window := webview.New(webview.Settings{
+		URL:       "data:text/html," + url.PathEscape(html),
+		Width:     800,
+		Height:    600,
+		Resizable: true,
+	})
 
-	if cfg.Env == "dev" {
-		// Wait for brunch dev server to boot up (quit trying after ~10s)
-		for i := 0; i < 10; i++ {
-			conn, err := net.DialTimeout("tcp", "localhost:3333", 1*time.Second)
-			if conn != nil {
-				conn.Close()
-			} else if err != nil {
-				time.Sleep(1 * time.Second)
+	window.Dispatch(func() {
+		// Inject CSS
+		window.Eval(fmt.Sprintf(`(function(css) {
+			var style = document.createElement('style');
+			var head = document.head || document.getElementsByTagName('head')[0];
+			style.setAttribute('type', 'text/css');
+			if (style.styleSheet) {
+				style.styleSheet.cssText = css;
+			} else {
+				style.appendChild(document.createTextNode(css));
 			}
-		}
+			head.appendChild(style);
+		})("%s")`, template.JSEscapeString(css)))
 
-		// Open webpack dev server page inside webview
-		window := webview.New(webview.Settings{
-			URL:       "http://localhost:3333",
-			Width:     800,
-			Height:    600,
-			Resizable: true,
-			Debug:     true})
-		window.Run()
-	} else {
-		// Open the compiled build inside webview
-		webview.Open(
-			"WIP WIP WIP",
-			"wip wip wip",
-			800,
-			600,
-			true)
-	}
+		// Inject JS
+		window.Eval(js)
+		window.Eval("require('index')")
+	})
+
+	window.Run()
 }

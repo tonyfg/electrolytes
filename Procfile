@@ -1,2 +1,2 @@
 brunch: cd web/app && yarn && yarn start
-go-app: go run cmd/app/app.go
+go-app: go run cmd/app/app_dev.go

@@ -55,16 +55,6 @@ module.exports = {
     },
     postcss: {
       processors: [require('autoprefixer')(['last 1 safari versions'])]
-    },
-
-    // ///////////////////////////
-    // Other prod build plugins //
-    // ///////////////////////////
-    gzip: {
-      paths: {
-        javascript: '/',
-        stylesheet: '/'
-      }
     }
   },
 
