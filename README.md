@@ -1,17 +1,33 @@
-Creating your app:
+# Electrolytes - it's what plants crave!
 
-1. git clone this repo
-2. go get -u -d github.com/magefile/mage
-X2. go get github.com/mattn/goreman
-X3. go get -u github.com/gobuffalo/packr/...
+## What?
 
-To launch the development version of the app:
-- goreman start
+Electrolytes is a lightweight HTML/JS/CSS environment for developing desktop apps. By the power of the great go-webview library we can have something electron-like, but without the heavy resource usage.
 
-To create a production build:
-- ...
+## How (can I use it)?
 
-Developing:
+You need to install the following dependencies:
+- Node.js
+- Yarn
+- Golang 1.X
+- Mage (optional)
+
+Extra dependencies needed for Linux:
+- GTK3
+- GtkWebkit2
+
+
+After installing dependencies, just clone this repo and run
+`mage`
+If you haven't installed mage, you can run it like this:
+`go run mage.go`
+
+This will start a development version of the app where any HTML/JS/CSS code is automatically reloaded when you save it.
+
+Try `mage -l` for a list of build targets.
+
+
+Submitting code to Electrolytes:
 
 This repo uses a directory/file structure according to: https://github.com/golang-standards/project-layout
 

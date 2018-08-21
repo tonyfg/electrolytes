@@ -1,4 +1,4 @@
-// +build prod
+// +build !dev
 
 package main
 
@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	box := packr.NewBox("../../web/app/public")
+	box := packr.NewBox("web/public")
 	html := box.String("index.html")
 	js := box.String("app.js")
 	css := box.String("app.css")
