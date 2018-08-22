@@ -32,5 +32,6 @@ Submitting code to Electrolytes:
 This repo uses a directory/file structure according to: https://github.com/golang-standards/project-layout
 
 TODO:
-- Cleanup web app to remove cruft that's unrelated to the skeleton
-- Get a production build with all JS/CSS/HTML/Etc assets bundled inside the go binary
+- Cross compilation support
+- Neatly package production binaries for each platform
+- Have an app generator like create-react-app instead of requiring people to clone the repo
