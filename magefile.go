@@ -39,10 +39,27 @@ func Dev() error {
 	return cmd.Run()
 }
 
-// Builds the production app
+// Builds the production app for the current OS / Architecture
 func Build() error {
 	mg.Deps(Clean, yarnBuild)
 	os.MkdirAll("bin", 0755)
+
+	cmd := exec.Command("go", "build", "-o", "bin/app", "app.go")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+
+// Builds the production app for every supported platform
+func CrossBuild() error {
+	mg.Deps(Clean, yarnBuild)
+	os.MkdirAll("bin", 0755)
+
+	// The following command will build for macos and windows.
+	// Cross-compiling for linux targets is unusually hard due to the
+	// dependency on gtkwebkit, which needs to be installed separately
+	//
+	// xgo -out "bin/electrolytes" --targets=darwin/amd64,windows/* .
 
 	cmd := exec.Command("go", "build", "-o", "bin/app", "app.go")
 	cmd.Stdout = os.Stdout
